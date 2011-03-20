@@ -1,0 +1,16 @@
+
+Modbus.NET would not be possible without the work
+done by others to create these useful packages:
+
+ - nmodbus - A C# implementation of the Modbus protocol
+   http://code.google.com/p/nmodbus
+   MIT License (MIT)
+   http://www.opensource.org/licenses/mit-license.html
+
+ - NUnit unit testing framework
+   http://www.nunit.org
+   Copyright (c) 2002-2008 Charlie Poole
+   Copyright (c) 2002-2004 James W. Newkirk, Michael C. Two, Alexei A. Vorontsov
+   Copyright (c) 2000-2002 Philip A. Craig
+   The NUnit license is based on the open source zlib/libpng license.
+   http://www.opensource.org/licenses/zlib-license.html

@@ -1,0 +1,5 @@
+*.pidb
+*.VisualState.xml
+*.suo
+/Modbus/obj
+/Modbus/bin
