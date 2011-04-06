@@ -1,5 +1,8 @@
 *.pidb
 *.VisualState.xml
 *.suo
-/Modbus/obj
-/Modbus/bin
+/Modbus.NET/bin
+/Modbus.NET/obj
+
+/UnitTests/bin
+/UnitTests/obj

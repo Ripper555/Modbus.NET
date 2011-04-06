@@ -7,6 +7,11 @@ done by others to create these useful packages:
    MIT License (MIT)
    http://www.opensource.org/licenses/mit-license.html
 
+ - node-modbus-stack - A `StreamStack` implementation of the MODBUS protocol, for NodeJS.
+   https://github.com/TooTallNate/node-modbus-stack
+   MIT License (MIT)
+   http://www.opensource.org/licenses/mit-license.html
+   
  - NUnit unit testing framework
    http://www.nunit.org
    Copyright (c) 2002-2008 Charlie Poole
