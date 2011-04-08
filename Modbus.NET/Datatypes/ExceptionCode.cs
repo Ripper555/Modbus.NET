@@ -109,17 +109,22 @@ namespace com.aperis.Modbus
         #endregion
 
 
-        public static readonly ExceptionCode IllegalFunction                  = new ExceptionCode("Illegal Function",                       1);
-        public static readonly ExceptionCode IllegalDataAddress               = new ExceptionCode("Illegal Data Address",                   2);
-        public static readonly ExceptionCode IllegalDataValue                 = new ExceptionCode("Illegal Data Value",                     3);
-        public static readonly ExceptionCode SlaveDeviceFailure               = new ExceptionCode("Slave Device Failure",                   4);
+        public static readonly ExceptionCode IllegalFunction                  = new ExceptionCode("Illegal Function",                        1);
+        public static readonly ExceptionCode IllegalDataAddress               = new ExceptionCode("Illegal Data Address",                    2);
+        public static readonly ExceptionCode IllegalDataValue                 = new ExceptionCode("Illegal Data Value",                      3);
+        public static readonly ExceptionCode SlaveDeviceFailure               = new ExceptionCode("Slave Device Failure",                    4);
 
-        public static readonly ExceptionCode Acknowledge                      = new ExceptionCode("Acknowledge",                            5);
-        public static readonly ExceptionCode SlaveDeviceBusy                  = new ExceptionCode("Slave Device Busy",                      6);
-        public static readonly ExceptionCode MemoryParityError                = new ExceptionCode("Memory Parity Error",                    8);
-        public static readonly ExceptionCode GatewayPathUnavailable           = new ExceptionCode("Gateway Path Unavailable",              10);
+        public static readonly ExceptionCode Acknowledge                      = new ExceptionCode("Acknowledge",                             5);
+        public static readonly ExceptionCode SlaveDeviceBusy                  = new ExceptionCode("Slave Device Busy",                       6);
+        public static readonly ExceptionCode MemoryParityError                = new ExceptionCode("Memory Parity Error",                     8);
+        public static readonly ExceptionCode GatewayPathUnavailable           = new ExceptionCode("Gateway Path Unavailable",               10);
 
-        public static readonly ExceptionCode GatewayTargetPathFailedToRespond = new ExceptionCode("Gateway Target Path Failed to Respond", 11);
+        public static readonly ExceptionCode GatewayTargetPathFailedToRespond = new ExceptionCode("Gateway Target Path Failed to Respond",  11);
+
+        public static readonly ExceptionCode SentFailed                       = new ExceptionCode("Sent failed",                           100);
+        public static readonly ExceptionCode NotConnected                     = new ExceptionCode("Not Connected",                         253);
+        public static readonly ExceptionCode ConnectionLost                   = new ExceptionCode("Connection Lost",                       254);
+        public static readonly ExceptionCode Timeout                          = new ExceptionCode("Timeout",                               255);
 
 
         #region Operator overloading
@@ -160,6 +165,86 @@ namespace com.aperis.Modbus
         public static Boolean operator != (ExceptionCode myExceptionCode1, ExceptionCode myExceptionCode2)
         {
             return !(myExceptionCode1 == myExceptionCode2);
+        }
+
+        #endregion
+
+        #region Operator <  (myExceptionCode1, myExceptionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myExceptionCode1">A ExceptionCode.</param>
+        /// <param name="myExceptionCode2">Another ExceptionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator < (ExceptionCode myExceptionCode1, ExceptionCode myExceptionCode2)
+        {
+
+            // Check if myExceptionCode1 is null
+            if ((Object) myExceptionCode1 == null)
+                throw new ArgumentNullException("Parameter myExceptionCode1 must not be null!");
+
+            // Check if myExceptionCode2 is null
+            if ((Object) myExceptionCode2 == null)
+                throw new ArgumentNullException("Parameter myExceptionCode2 must not be null!");
+
+            return myExceptionCode1.CompareTo(myExceptionCode2) < 0;
+
+        }
+
+        #endregion
+
+        #region Operator >  (myExceptionCode1, myExceptionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myExceptionCode1">A ExceptionCode.</param>
+        /// <param name="myExceptionCode2">Another ExceptionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator > (ExceptionCode myExceptionCode1, ExceptionCode myExceptionCode2)
+        {
+
+            // Check if myExceptionCode1 is null
+            if ((Object) myExceptionCode1 == null)
+                throw new ArgumentNullException("Parameter myExceptionCode1 must not be null!");
+
+            // Check if myExceptionCode2 is null
+            if ((Object) myExceptionCode2 == null)
+                throw new ArgumentNullException("Parameter myExceptionCode2 must not be null!");
+
+            return myExceptionCode1.CompareTo(myExceptionCode2) > 0;
+
+        }
+
+        #endregion
+
+        #region Operator <= (myExceptionCode1, myExceptionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myExceptionCode1">A ExceptionCode.</param>
+        /// <param name="myExceptionCode2">Another ExceptionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator <= (ExceptionCode myExceptionCode1, ExceptionCode myExceptionCode2)
+        {
+            return !(myExceptionCode1 > myExceptionCode2);
+        }
+
+        #endregion
+
+        #region Operator >= (myExceptionCode1, myExceptionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myExceptionCode1">A ExceptionCode.</param>
+        /// <param name="myExceptionCode2">Another ExceptionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator >= (ExceptionCode myExceptionCode1, ExceptionCode myExceptionCode2)
+        {
+            return !(myExceptionCode1 < myExceptionCode2);
         }
 
         #endregion

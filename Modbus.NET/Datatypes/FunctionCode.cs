@@ -148,28 +148,29 @@ namespace com.aperis.Modbus
         #endregion
 
 
-        public static readonly FunctionCode ReadCoil                       = new FunctionCode("Read coil",                           1, AccessRight.read,      AccessGroup.bit);
-        public static readonly FunctionCode ReadDiscreteInputs             = new FunctionCode("Read discrete inputs",                2, AccessRight.read,      AccessGroup.bit);
-        public static readonly FunctionCode ReadHoldingRegister            = new FunctionCode("Read holding register",               3, AccessRight.read,      AccessGroup.word);
-        public static readonly FunctionCode ReadInputRegister              = new FunctionCode("Read input register",                 4, AccessRight.read,      AccessGroup.word);
-                                                                                                                          
-        public static readonly FunctionCode WriteSingleCoil                = new FunctionCode("Write single coil",                   5, AccessRight.readwrite, AccessGroup.bit);
+        public static readonly FunctionCode ReadCoils                      = new FunctionCode("Read coils",                          1, AccessRight.read,      AccessGroup.bit);
+        public static readonly FunctionCode ReadDiscreteInputs             = new FunctionCode("Read discrete inputs",                2, AccessRight.read,      AccessGroup.bit,         "Single sensor bit");
+        public static readonly FunctionCode ReadHoldingRegister            = new FunctionCode("Read holding register",               3, AccessRight.read,      AccessGroup.word,        "16-bit sensor word");
+        public static readonly FunctionCode ReadInputRegister              = new FunctionCode("Read input register",                 4, AccessRight.read,      AccessGroup.word,        "16-bit sensor word");
+        
+        public static readonly FunctionCode WriteSingleCoil                = new FunctionCode("Write single coil",                   5, AccessRight.readwrite, AccessGroup.bit,         "Single actor bit");
         public static readonly FunctionCode WriteSingleRegister            = new FunctionCode("Write single register",               6, AccessRight.readwrite, AccessGroup.word);
-        public static readonly FunctionCode WriteMultipleCoils             = new FunctionCode("Write multiple coils",               15, AccessRight.readwrite, AccessGroup.bit);
-        public static readonly FunctionCode WriteMultipleRegister          = new FunctionCode("Write multiple registers",           16, AccessRight.readwrite, AccessGroup.word);
-                                                                           
-        public static readonly FunctionCode ReadWriteMultipleRegister      = new FunctionCode("Write and write multiple registers", 23, AccessRight.readwrite, AccessGroup.word);
-        public static readonly FunctionCode MaskWriteRegister              = new FunctionCode("Mask Write Register",                22, AccessRight.readwrite, AccessGroup.word);
-        public static readonly FunctionCode ReadFIFOQueue                  = new FunctionCode("Read FIFO Queue",                    24, AccessRight.readwrite, AccessGroup.word);
-                                                                           
-        public static readonly FunctionCode ReadFileRecord                 = new FunctionCode("Read File Record",                   20, AccessRight.read,      AccessGroup.file);
-        public static readonly FunctionCode WriteFileRecord                = new FunctionCode("Write File Record",                  21, AccessRight.readwrite, AccessGroup.file);
-                                                                           
         public static readonly FunctionCode ReadExceptionStatus            = new FunctionCode("Read Exception Status",               7, AccessRight.read,      AccessGroup.diagnostics);
         public static readonly FunctionCode Diagnostic                     = new FunctionCode("Diagnostic",                          8, AccessRight.readwrite, AccessGroup.diagnostics);
+
         public static readonly FunctionCode GetComEventCounter             = new FunctionCode("Get Com Event Counter",              11, AccessRight.read,      AccessGroup.diagnostics);
         public static readonly FunctionCode GetComEventLog                 = new FunctionCode("Get Com Event Log",                  12, AccessRight.read,      AccessGroup.diagnostics);
+
+        public static readonly FunctionCode WriteMultipleCoils             = new FunctionCode("Write multiple coils",               15, AccessRight.readwrite, AccessGroup.bit);
+        public static readonly FunctionCode WriteMultipleRegister          = new FunctionCode("Write multiple registers",           16, AccessRight.readwrite, AccessGroup.word);
         public static readonly FunctionCode ReportSlaveID                  = new FunctionCode("Report Slave ID",                    17, AccessRight.read,      AccessGroup.diagnostics);
+
+        public static readonly FunctionCode ReadFileRecord                 = new FunctionCode("Read File Record",                   20, AccessRight.read,      AccessGroup.file);
+        public static readonly FunctionCode WriteFileRecord                = new FunctionCode("Write File Record",                  21, AccessRight.readwrite, AccessGroup.file);
+        public static readonly FunctionCode MaskWriteRegister              = new FunctionCode("Mask Write Register",                22, AccessRight.readwrite, AccessGroup.word);
+        public static readonly FunctionCode ReadWriteMultipleRegister      = new FunctionCode("Write and write multiple registers", 23, AccessRight.readwrite, AccessGroup.word);
+        public static readonly FunctionCode ReadFIFOQueue                  = new FunctionCode("Read FIFO Queue",                    24, AccessRight.readwrite, AccessGroup.word);
+
         public static readonly FunctionCode EncapsulatedInterfaceTransport = new FunctionCode("Encapsulated Interface Transport",   43, AccessRight.read,      AccessGroup.diagnostics);
 
 
@@ -211,6 +212,86 @@ namespace com.aperis.Modbus
         public static Boolean operator != (FunctionCode myFunctionCode1, FunctionCode myFunctionCode2)
         {
             return !(myFunctionCode1 == myFunctionCode2);
+        }
+
+        #endregion
+
+        #region Operator <  (myFunctionCode1, myFunctionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myFunctionCode1">A FunctionCode.</param>
+        /// <param name="myFunctionCode2">Another FunctionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator < (FunctionCode myFunctionCode1, FunctionCode myFunctionCode2)
+        {
+
+            // Check if myFunctionCode1 is null
+            if ((Object) myFunctionCode1 == null)
+                throw new ArgumentNullException("Parameter myFunctionCode1 must not be null!");
+
+            // Check if myFunctionCode2 is null
+            if ((Object) myFunctionCode2 == null)
+                throw new ArgumentNullException("Parameter myFunctionCode2 must not be null!");
+
+            return myFunctionCode1.CompareTo(myFunctionCode2) < 0;
+
+        }
+
+        #endregion
+
+        #region Operator >  (myFunctionCode1, myFunctionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myFunctionCode1">A FunctionCode.</param>
+        /// <param name="myFunctionCode2">Another FunctionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator > (FunctionCode myFunctionCode1, FunctionCode myFunctionCode2)
+        {
+
+            // Check if myFunctionCode1 is null
+            if ((Object) myFunctionCode1 == null)
+                throw new ArgumentNullException("Parameter myFunctionCode1 must not be null!");
+
+            // Check if myFunctionCode2 is null
+            if ((Object) myFunctionCode2 == null)
+                throw new ArgumentNullException("Parameter myFunctionCode2 must not be null!");
+
+            return myFunctionCode1.CompareTo(myFunctionCode2) > 0;
+
+        }
+
+        #endregion
+
+        #region Operator <= (myFunctionCode1, myFunctionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myFunctionCode1">A FunctionCode.</param>
+        /// <param name="myFunctionCode2">Another FunctionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator <= (FunctionCode myFunctionCode1, FunctionCode myFunctionCode2)
+        {
+            return !(myFunctionCode1 > myFunctionCode2);
+        }
+
+        #endregion
+
+        #region Operator >= (myFunctionCode1, myFunctionCode2)
+
+        /// <summary>
+        /// Compares two instances of this object.
+        /// </summary>
+        /// <param name="myFunctionCode1">A FunctionCode.</param>
+        /// <param name="myFunctionCode2">Another FunctionCode.</param>
+        /// <returns>true|false</returns>
+        public static Boolean operator >= (FunctionCode myFunctionCode1, FunctionCode myFunctionCode2)
+        {
+            return !(myFunctionCode1 < myFunctionCode2);
         }
 
         #endregion

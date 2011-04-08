@@ -1,4 +1,4 @@
-[Modbus.NET](http://github.com/aperis/Modbus.NET) is a communication library for .NET.
+[Modbus.NET](http://github.com/aperis/Modbus.NET) is a modbus/IP communication library and Modbus2REST-gateway for .NET.
 
 #### Usage
 
@@ -13,7 +13,7 @@ Additional help and much more examples can be found in the [Wiki](http://github.
 The installation of Modbus.NET is very straightforward.    
 Just check out or download its sources and all its dependencies:
 
-- [Hermod](http://github.com/ahzf/Hermod) for controlling the camera via HTTP/REST.
+- [Hermod](http://github.com/ahzf/Hermod) client/server communication library especially for HTTP/REST.
 - [NUnit](http://www.nunit.org) for unit tests.
 
 #### License and your contribution

@@ -44,9 +44,14 @@
     <Compile Include="Datatypes\AccessGroup.cs" />
     <Compile Include="Datatypes\AccessRight.cs" />
     <Compile Include="Datatypes\ExceptionCode.cs" />
+    <Compile Include="Interfaces\IModbusMaster.cs" />
+    <Compile Include="Interfaces\IModbusDevice.cs" />
     <Compile Include="ModbusMaster.cs" />
     <Compile Include="Datatypes\FunctionCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\PDUs\AModbusPDU.cs" />
+    <Compile Include="Protocol\PDUs\ReadCoils.cs" />
+    <Compile Include="Protocol\Extensions.cs" />
     <Compile Include="Protocol\ModbusProtocol.cs" />
   </ItemGroup>
   <ItemGroup>
